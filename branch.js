@@ -1,4 +1,4 @@
-class Branch {
+export class Branch {
   constructor(name) {
     this.branchName = name;
     this.customers = [];
@@ -14,17 +14,20 @@ class Branch {
       cst.getId() === customer.getId();
     });
     if (!findCustomer) {
-      return this.customers.push(customer);
+      this.customers.push(customer);
+      return true;
     } else {
       return false;
     }
   }
+
   addCustomerTransaction(customerId, amount) {
-    this.customerId = customerId;
-    this.amount = amount;
+    const customer = this.customers.find((cst) => cst.getId() === customerId);
+    if (customer) {
+      customer.addTransaction(amount);
+      return true;
+    } else {
+      return false;
+    }
   }
 }
-
-const branch = new Branch("Rajhi");
-
-console.log(branch);

@@ -1,14 +1,16 @@
-class Customer {
+import { Transaction } from "./transaction.js";
+
+export class Customer {
   constructor(id, name) {
-    this.coutomerId = id;
-    this.costomerName = name;
+    this.customerId = id;
+    this.customerName = name;
     this.transaction = [];
   }
   getName() {
-    return this.costomerName;
+    return this.customerName;
   }
   getId() {
-    return this.coutomerId;
+    return this.customerId;
   }
   getTransaction() {
     return this.transaction;
@@ -21,16 +23,12 @@ class Customer {
     if (balance > 0) {
       return balance;
     } else {
-      return 0;
+      return "The balance cannot be negative";
     }
   }
   addTransaction(amount) {
-    this.transaction.push(amount);
+    const transaction = new Transaction(amount, new Date());
+    this.transaction.push(transaction);
     return true;
   }
 }
-
-const c = new Customer(1, "shrouq");
-console.log(c);
-
-console.log(c.getTransaction());
