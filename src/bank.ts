@@ -34,7 +34,7 @@ export class Bank {
 
   addCustomerTransaction(
     branch: Branch,
-    customerId: string,
+    customerId: number,
     amount: number
   ): boolean {
     const foundBranch = this.branches.find(

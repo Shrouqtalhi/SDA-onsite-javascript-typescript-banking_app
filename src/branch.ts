@@ -10,7 +10,7 @@ export class Branch {
   getName(): string {
     return this.branchName;
   }
-  getCustomers() {
+  getCustomers(): Customer[] {
     return this.customers;
   }
   addCustomer(customer: Customer): boolean {
@@ -26,7 +26,7 @@ export class Branch {
     }
   }
 
-  addCustomerTransaction(customerId: string, amount: number): boolean {
+  addCustomerTransaction(customerId: number, amount: number): boolean {
     const customer = this.customers.find((cst) => cst.getId() === customerId);
     if (customer) {
       customer.addTransaction(amount);

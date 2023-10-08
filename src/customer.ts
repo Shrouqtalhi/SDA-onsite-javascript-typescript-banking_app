@@ -1,10 +1,10 @@
 import { Transaction } from "./transaction.js";
 
 export class Customer {
-  customerId: string;
+  customerId: number;
   customerName: string;
   transactions: Transaction[];
-  constructor(id: string, name: string) {
+  constructor(id: number, name: string) {
     this.customerId = id;
     this.customerName = name;
     this.transactions = [];
@@ -12,7 +12,7 @@ export class Customer {
   getName(): string {
     return this.customerName;
   }
-  getId(): string {
+  getId(): number {
     return this.customerId;
   }
   getTransaction(): Transaction[] {
